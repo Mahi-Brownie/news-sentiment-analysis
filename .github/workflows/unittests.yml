@@ -2,7 +2,7 @@
 
 on:
   push:
-    branches: [ main, task-1, task-2, task-3 ]
+    branches: [ task-1, task-2, task-3, main ]
   pull_request:
     branches: [ main ]
 
@@ -11,8 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -26,4 +25,4 @@ jobs:
     
     - name: Run tests
       run: |
-        pytest tests/ -v
+        python -m pytest tests/ -v
